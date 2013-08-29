@@ -71,10 +71,10 @@
             this.columnHeader3});
 			this.listServices.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F);
 			this.listServices.FullRowSelect = true;
-			this.listServices.Location = new System.Drawing.Point(12, 38);
+			this.listServices.Location = new System.Drawing.Point(12, 39);
 			this.listServices.MultiSelect = false;
 			this.listServices.Name = "listServices";
-			this.listServices.Size = new System.Drawing.Size(654, 280);
+			this.listServices.Size = new System.Drawing.Size(654, 279);
 			this.listServices.TabIndex = 4;
 			this.listServices.UseCompatibleStateImageBehavior = false;
 			this.listServices.View = System.Windows.Forms.View.Details;
@@ -191,9 +191,10 @@
 			// btnRefresh
 			// 
 			this.btnRefresh.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+			this.btnRefresh.Image = global::ServiceManager.Properties.Resources.refresh;
 			this.btnRefresh.Location = new System.Drawing.Point(635, 12);
 			this.btnRefresh.Name = "btnRefresh";
-			this.btnRefresh.Size = new System.Drawing.Size(31, 20);
+			this.btnRefresh.Size = new System.Drawing.Size(31, 21);
 			this.btnRefresh.TabIndex = 12;
 			this.btnRefresh.UseVisualStyleBackColor = true;
 			this.btnRefresh.Click += new System.EventHandler(this.btnRefresh_Click);
