@@ -47,10 +47,23 @@ namespace ServiceManager
 			columns[0] = SEARCH_FILTER_ALL;
 			columns[1] = SEARCH_FILTER_FULLNAME;
 			columns[2] = SEARCH_FILTER_SHORTNAME;
-			this.searchBy.Items.AddRange(columns);
-			this.searchBy.SelectedIndex = 0;
+			//this.searchBy.Items.AddRange(columns);
+			//this.searchBy.SelectedIndex = 0;
 
 			activeSearchBy = SearchByMode.all;
+
+			ToolTip toolTip = new ToolTip();
+			toolTip.AutoPopDelay = 5000;
+			toolTip.InitialDelay = 1000;
+			toolTip.ShowAlways = true;
+			toolTip.SetToolTip(this.refreshButton, "Refresh List");
+			toolTip.SetToolTip(this.lblBlueStatus, "All Services");
+			toolTip.SetToolTip(this.lblGreenStatus, "Running Services");
+			toolTip.SetToolTip(this.lblRedStatus, "Stopped Services");
+			toolTip.SetToolTip(this.lblTotalSrv, "All Services");
+			toolTip.SetToolTip(this.lblRunSrv, "Running Services");
+			toolTip.SetToolTip(this.lblStoSrv, "Stopped Services");
+
 		}
 
 		private void loadServices()
@@ -83,16 +96,6 @@ namespace ServiceManager
 		public void tmp()
 		{
 
-		}
-
-		private void searchBy_SelectionChangeCommitted(object sender, EventArgs e)
-		{
-			string selectedItemText = searchBy.GetItemText(searchBy.SelectedItem);
-
-			if (selectedItemText.Equals(SEARCH_FILTER_FULLNAME))
-				activeSearchBy = SearchByMode.fullName;
-			else if (selectedItemText.Equals(SEARCH_FILTER_SHORTNAME))
-				activeSearchBy = SearchByMode.shortName;
 		}
 
 		private void txtSearch_TextChanged(object sender, EventArgs e)
@@ -153,7 +156,7 @@ namespace ServiceManager
 
 		private void button1_Click(object sender, EventArgs e)
 		{
-
+			this.refreshServicesInTheList();
 		}
 
 		private void listServices_MouseUp(object sender, MouseEventArgs e)
@@ -358,10 +361,6 @@ namespace ServiceManager
 			}
 		}
 
-		private void btnRefresh_Click(object sender, EventArgs e)
-		{
-			this.refreshServicesInTheList();
-		}
 
 		/// <summary>
 		/// Refresh the state of all services in the list
